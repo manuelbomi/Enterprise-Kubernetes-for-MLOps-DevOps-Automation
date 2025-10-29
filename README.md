@@ -34,7 +34,7 @@ Whether you are a **ML Engineer**, **Data Scientist**, or **DevOps practitioner*
 
 Kubernetes (often abbreviated as **K8s**) is an **orchestration platform** for containers.
 
-> You have multiple containers (Docker images) that you want to run reliably across several machines. Kubernetes is the *manager* that ensures they stay healthy, available, and scalable.
+> You have multiple containers (Docker images) that you want to run reliably across several machines (called nodes). Kubernetes is the *manager* that ensures they stay healthy, available, and scalable.
 
 ### Kubernetes handles:
 - Container **scheduling** and **placement**
