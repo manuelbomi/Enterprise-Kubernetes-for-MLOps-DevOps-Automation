@@ -5,7 +5,7 @@ This repository provides a **complete guide and hands-on walkthrough** of how **
 Whether you are a **ML Engineer**, **Data Scientist**, or **DevOps practitioner**, this guide will help you understand:
 - How Kubernetes works  
 - The role of YAML files  
-- How clusters are provisioned  
+- How clusters are provisoined  
 - How containers, pods, and services interact  
 - How to deploy apps for **DevOps CI/CD pipelines** and **MLOps workloads**
 
