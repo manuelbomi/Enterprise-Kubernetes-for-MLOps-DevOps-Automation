@@ -439,7 +439,32 @@ service/nginx-service created
 
 kubectl get pods
 
+
+```
+
+### Output 
+
+```pthon
+
+NAME                                READY   STATUS    RESTARTS   AGE
+nginx-deployment-6b474476c6-dx2z4   1/1     Running   0          10s
+nginx-deployment-6b474476c6-fm7tq   1/1     Running   0          10s
+
+
+```
+
+```python
+
 kubectl get svc
+
+```
+
+### Example Output:
+
+```python
+
+NAME             TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+nginx-service    NodePort   10.96.38.224   <none>        80:30001/TCP   30s
 
 ```
 
