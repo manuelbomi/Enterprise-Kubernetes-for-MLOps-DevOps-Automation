@@ -165,7 +165,7 @@ kubectl apply -f deployment.yaml
 
 ```
 
-##### Here is waht happens under the hood
+##### Here is what happens under the hood
 
 - The kubectl CLI talks to the Kubernetes API server (the control plane).
 
