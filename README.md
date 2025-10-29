@@ -89,3 +89,15 @@ spec:
         image: nginx:latest
         ports:
         - containerPort: 80
+```
+
+When you run:
+
+```python
+kubectl apply -f my-webapp.yaml
+```
+
+Kubernetes ensures that 3 pods are running an NGINX container.
+
+If one fails, it spins up another automatically.
+
