@@ -114,8 +114,8 @@ Then Kubernetes:
 
 - Balances them across the cluster.
 
->[NOTE!] So im essence, it is the YAML file that defines what pods, services, and deployments should exist, <ins>but</ins> Kubernetes itself is the system that brings them to life.
->
+> [NOTE!] So im essence, it is the YAML file that defines what pods, services, and deployments should exist, <ins>but</ins> Kubernetes itself is the system that brings them to life.
+
 --- 
 
 ## 4. Do You Need to Install Kubernetes Before Writing YAML?
