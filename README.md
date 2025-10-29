@@ -117,6 +117,12 @@ You can write YAML files anytime (they’re just text), but to execute them, you
 ### Example (Minikube)
 
 # Install Minikube
+
+```python
 brew install minikube kubectl   # macOS
+
+
+
 choco install minikube kubectl  # Windows
+```
 
