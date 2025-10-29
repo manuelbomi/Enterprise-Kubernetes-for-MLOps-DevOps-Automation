@@ -157,6 +157,7 @@ kubectl apply -f deployment.yaml
 
 ##### Kubernetes constantly ensures that the actual state matches the desired state you declared in your YAML.
 
+---
 
 ## 6. Key YAML Object Types You Will See
 
@@ -215,6 +216,8 @@ spec:
 ##### This YAML would be automatically updated by Jenkins, ArgoCD, or GitHub Actions whenever a new image tag (1.0.6, 1.0.7, etc.) is built.
 
 ##### Kubernetes handles rolling updates gracefully, ensuring no downtime.
+
+---
 
 ## 8. Kubernetes in MLOps
 
@@ -283,4 +286,158 @@ spec:
         ports:
         - containerPort: 8000
 ```
+
+#### This deployment:
+
+- Serves a trained ML model (FastAPI or Flask REST endpoint).
+
+- Can be autoscaled based on CPU/traffic.
+
+- Fits seamlessly into an MLOps pipeline using Kubeflow, ZenML, or MLflow.
+
+---
+
+## 9. Hands-On Example — Deploy NGINX Locally
+
+#### Now let us walk through a complete example locally using Minikube.
+
+### Step 1: Start Minikube
+
+```python
+minikube start
+```
+
+### Step 2: Create Deployment YAML
+
+##### Create nginx-deployment.yaml:
+
+```python
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+```
+
+### Step 3: Create Service YAML
+
+##### Create nginx-service.yaml:
+
+```python
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  type: NodePort
+  selector:
+    app: nginx
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30001
+```
+
+### Step 4: Deploy
+
+```python
+
+kubectl apply -f nginx-deployment.yaml
+
+kubectl apply -f nginx-service.yaml
+
+```
+
+### Step 5: Verify
+
+```python
+
+kubectl get pods
+
+kubectl get svc
+
+```
+
+### Step 6: Access App
+
+```python
+
+minikube service nginx-service
+
+```
+
+Visit:
+
+```python
+http://127.0.0.1:30001
+
+```
+
+You should see the default NGINX welcome page.
+
+### Step 7: Clean Up
+
+```python
+
+kubectl delete -f nginx-deployment.yaml
+
+kubectl delete -f nginx-service.yaml
+
+minikube stop
+```
+
+### Next Step (Optional)
+
+##### Extend this demo with Auto-Scaling:
+
+```python
+kubectl autoscale deployment nginx-deployment --cpu-percent=70 --min=2 --max=5
+```
+
+# Final Mental Model
+
+| Concept | Example |
+|---------|---------|
+| **Cluster** | Minikube, EKS, AKS |
+| **Deployment** | Manages pods for your app |
+| **Service** | Exposes pods to users |
+| **YAML** | Blueprint of what you want |
+| **kubectl apply** | Command to create/update resources |
+| **Pods** | Running containers inside Kubernetes |
+| **Kubelets** | Download Docker images and run containers |
+
+
+
+
+
+
+## Conclusion
+
+#### Kubernetes is at the core of modern enterprise infrastructure — powering both DevOps and MLOps by providing:
+
+- Scalability and resilience
+
+- Infrastructure as code (YAML)
+
+- Automated deployments
+
+- Multi-cloud portability
+
+- Support for AI/ML pipelines
+
+##### Whether you are deploying web backends, data pipelines, or AI models, Kubernetes ensures your workloads are automated, reliable, and production-ready.
 
