@@ -2,7 +2,7 @@
 
 This repository provides a **complete guide and hands-on walkthrough** of how **Kubernetes (K8s)** powers **DevOps** and **MLOps** workflows for enterprise-scale applications.
 
-Whether you are a **junior engineer**, **data scientist**, or **DevOps practitioner**, this guide will help you understand:
+Whether you are a **ML Engineer**, **Data Scientist**, or **DevOps practitioner**, this guide will help you understand:
 - How Kubernetes works  
 - The role of YAML files  
 - How clusters are provisioned  
@@ -11,7 +11,7 @@ Whether you are a **junior engineer**, **data scientist**, or **DevOps practitio
 
 ---
 
-## 📘 Table of Contents
+##  Table of Contents
 
 1. [What is Kubernetes?](#-1-what-kubernetes-is)
 2. [What is a Cluster?](#-2-what-a-kubernetes-cluster-is)
@@ -28,7 +28,7 @@ Whether you are a **junior engineer**, **data scientist**, or **DevOps practitio
 
 ---
 
-## 🧠 1. What Kubernetes *Is*
+##  1. What Kubernetes *Is*
 
 Kubernetes (often abbreviated as **K8s**) is an **orchestration platform** for containers.
 
@@ -44,7 +44,7 @@ Kubernetes (often abbreviated as **K8s**) is an **orchestration platform** for c
 
 ---
 
-## 🖥️ 2. What a Kubernetes Cluster Is
+##  2. What a Kubernetes Cluster Is
 
 A Kubernetes **cluster** is made up of two main parts:
 
@@ -59,7 +59,7 @@ Think of it as:
 
 ---
 
-## ⚙️ 3. What the YAML Files Do
+##  3. What the YAML Files Do
 
 Kubernetes uses **YAML files** as blueprints to describe what you want it to create or manage.
 
@@ -67,7 +67,7 @@ These are **declarative** — meaning you describe the *desired state*, and Kube
 
 ---
 
-### 🧾 Example: Simple Deployment YAML
+###  Example: Simple Deployment YAML
 
 ```yaml
 apiVersion: apps/v1
