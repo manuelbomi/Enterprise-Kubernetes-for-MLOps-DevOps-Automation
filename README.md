@@ -142,7 +142,8 @@ Then Kubernetes:
 
 ### Example (Minikube)
 
-# Install Minikube
+
+### Install Minikube
 
 ```python
 brew install minikube kubectl   # macOS
@@ -659,7 +660,7 @@ kubectl apply -f nginx-hpa.yaml
 
 
 
-
+---
 
 
 ### Final Mental Model
@@ -675,7 +676,7 @@ kubectl apply -f nginx-hpa.yaml
 | **Kubelets** | Download Docker images and run containers |
 
 
-
+---
 
 
 
