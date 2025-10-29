@@ -172,3 +172,115 @@ kubectl apply -f deployment.yaml
 | **Ingress** | Routes external HTTP/S traffic to your services. |
 | **Job / CronJob** | Run one-time or scheduled tasks. |
 
+---
+
+## 7. Kubernetes in DevOps
+
+##### Kubernetes is a core building block in DevOps pipelines.
+
+### 🔹 Example Workflow:
+
+- Developer pushes code → triggers CI pipeline.
+
+- CI pipeline builds a Docker image and pushes it to a registry.
+
+- CD pipeline updates a Kubernetes Deployment via YAML.
+
+- Kubernetes rolls out new pods zero-downtime.
+
+### 🔹 DevOps YAML Example — CI/CD Deployment
+
+```python
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: mycompany/backend:1.0.5
+        ports:
+        - containerPort: 8080
+```
+
+##### This YAML would be automatically updated by Jenkins, ArgoCD, or GitHub Actions whenever a new image tag (1.0.6, 1.0.7, etc.) is built.
+
+##### Kubernetes handles rolling updates gracefully, ensuring no downtime.
+
+## 8. Kubernetes in MLOps
+
+#### Kubernetes enables scalable, reproducible ML workflows by orchestrating:
+
+- Training jobs
+
+- Model serving
+
+- Data preprocessing
+
+- Batch inference
+
+- Monitoring
+
+
+### 🔹 Example: ML Model Training Job
+
+```python
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: train-iris-model
+spec:
+  template:
+    spec:
+      containers:
+      - name: trainer
+        image: myregistry/ml-train:latest
+        command: ["python", "train.py"]
+        resources:
+          limits:
+            cpu: "4"
+            memory: "8Gi"
+      restartPolicy: Never
+```
+
+#### This YAML:
+
+- Runs a one-time ML training task (train.py).
+
+- Uses Kubernetes’ job management to ensure completion.
+
+- Can be scaled horizontally for distributed training (e.g., TensorFlow, PyTorch).
+
+### 🔹 Example: Model Serving Deployment (using FastAPI)
+
+```python
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iris-model-server
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: iris-model
+  template:
+    metadata:
+      labels:
+        app: iris-model
+    spec:
+      containers:
+      - name: model-server
+        image: myregistry/iris-serving:latest
+        ports:
+        - containerPort: 8000
+```
+
