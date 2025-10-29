@@ -101,6 +101,7 @@ kubectl apply -f my-webapp.yaml
 
 ##### If one fails, it spins up another automatically.
 
+--- 
 
 ## 4. Do You Need to Install Kubernetes Before Writing YAML?
 
@@ -129,6 +130,8 @@ minikube start
 
 ```
 
+---
+
 ## 5. What Happens When You Deploy YAML
 
 ##### When you apply a YAML file with:
@@ -151,4 +154,19 @@ kubectl apply -f deployment.yaml
 - The Kubelet on each node pulls the image and starts the container.
 
 ##### Kubernetes constantly ensures that the actual state matches the desired state you declared in your YAML.
+
+
+## 6. Key YAML Object Types You Will See
+
+# Kubernetes Objects
+
+| Object | Purpose |
+|--------|---------|
+| **Pod** | Smallest deployable unit — runs one or more containers. |
+| **Deployment** | Manages identical pods, keeps them running. |
+| **Service** | Exposes pods to internal/external traffic. |
+| **ConfigMap** | Stores configuration data. |
+| **Secret** | Stores sensitive information (tokens, passwords). |
+| **Ingress** | Routes external HTTP/S traffic to your services. |
+| **Job / CronJob** | Run one-time or scheduled tasks. |
 
