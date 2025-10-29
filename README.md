@@ -94,16 +94,27 @@ spec:
         - containerPort: 80
 ```
 
-When you run:
+#### When you run:
 
 ```python
 kubectl apply -f my-webapp.yaml
 ```
 
-##### Kubernetes ensures that 3 pods are running an NGINX container.
+You are essentailly saying:
 
-##### If one fails, it spins up another automatically.
+“Hey Kubernetes, I want three containers running nginx, listening on port 80.”
 
+Then Kubernetes:
+
+- Schedules 3 pods on the available worker nodes.
+
+- Monitors them to make sure they’re running.
+
+- Restarts them if they crash.
+
+- Balances them across the cluster.
+
+So yes — it’s the YAML file that defines what pods, services, and deployments should exist, but Kubernetes itself is the system that brings them to life.
 --- 
 
 ## 4. Do You Need to Install Kubernetes Before Writing YAML?
