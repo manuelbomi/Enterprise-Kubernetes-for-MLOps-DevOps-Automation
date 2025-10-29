@@ -389,6 +389,7 @@ spec:
 
 - You can integrate this with Kubeflow, ZenML, or MLflow for full MLOps orchestration.
 
+---
 
 ## 9. Hands-On Example — Deploy NGINX Locally
 
@@ -556,6 +557,110 @@ minikube stop
 ```python
 kubectl autoscale deployment nginx-deployment --cpu-percent=70 --min=2 --max=5
 ```
+
+---
+
+## DEVOPS EXAMPLE — CICD WITH JENKINS OR GITHUB ACTIONS
+
+#### You can automate deployments by integrating Kubernetes into your CI/CD pipeline.
+
+#### Example GitHub Actions Workflow (.github/workflows/deploy.yaml)
+
+```python
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Set up kubectl
+      uses: azure/setup-kubectl@v3
+      with:
+        version: 'latest'
+
+    - name: Deploy to Kubernetes
+      run: |
+        kubectl apply -f nginx-deployment.yaml
+        kubectl apply -f nginx-service.yaml
+```
+
+#### This workflow:
+
+- Triggers automatically when code is pushed to the main branch.
+
+- Uses GitHub Actions to deploy updated YAMLs directly to your cluster.
+- 
+
+### For Jenkins
+
+#### In Jenkins, a simple pipeline step would look like:
+
+```python
+pipeline {
+    agent any
+    stages {
+        stage('Deploy') {
+            steps {
+                sh 'kubectl apply -f nginx-deployment.yaml'
+                sh 'kubectl apply -f nginx-service.yaml'
+            }
+        }
+    }
+}
+```
+
+---
+
+## 11. AUTO-SCALING EXAMPLE
+
+#### Kubernetes can automatically add more pods when CPU usage increases.
+
+```python
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: nginx-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: nginx-deployment
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 60
+```
+
+#### Apply it:
+
+```python
+kubectl apply -f nginx-hpa.yaml
+```
+
+#### Now, if your NGINX pods go above 60% CPU, Kubernetes automatically adds replicas up to 5.
+
+### ENTERPRISE USE CASES
+
+| Domain | Example |
+|--------|---------|
+| **DevOps** | Auto-deploy microservices via GitHub Actions and Jenkins |
+| **MLOps** | Deploy ML inference endpoints with ZenML / Kubeflow |
+| **DataOps** | Run distributed ETL jobs using Dask or Spark on Kubernetes |
+| **Observability** | Monitor workloads with Prometheus + Grafana |
+| **High Availability** | Load-balanced replicas with self-healing pods |
+
+
+
+
+
 
 ### Final Mental Model
 
