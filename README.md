@@ -38,9 +38,10 @@ Kubernetes (often abbreviated as **K8s**) is an **orchestration platform** for c
 
 ### Kubernetes handles:
 - Container **scheduling** and **placement**
+- Starting your containers (called pods in Kubernetes)
 - **Self-healing** (restarts crashed containers)
 - **Scaling** (up/down automatically)
-- **Load balancing**
+- **Load balancing** (distributing the containers across several servers)
 - **Networking** between services
 - **Rolling updates** without downtime
 
@@ -63,9 +64,9 @@ Think of it as:
 
 ##  3. What the YAML Files Do
 
-Kubernetes uses **YAML files** as blueprints to describe what you want it to create or manage.
+Kubernetes uses **YAML files** as blueprints to describe what you want it to create or manage. YAML files essentially tells Kubernetes what you want it to do.
 
-These are **declarative** — meaning you describe the *desired state*, and Kubernetes figures out *how* to reach it.
+These are **declarative** — meaning you describe the *desired state*, and Kubernetes figures out *how* to do or reach it.
 
 ---
 
