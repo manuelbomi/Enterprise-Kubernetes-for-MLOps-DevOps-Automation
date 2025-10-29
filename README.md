@@ -219,6 +219,15 @@ kubectl apply -f deployment.yaml
 
 - Kubernetes rolls out new pods zero-downtime.
 
+
+```python
+# Example Workflow
+
+You (Dev) → Write YAML → Apply YAML (kubectl CLI) → Kubernetes API → Controller Manager → Scheduler → Kubelet → Pods run
+
+
+```
+
 ### 🔹 DevOps YAML Example — CI/CD Deployment
 
 ```python
