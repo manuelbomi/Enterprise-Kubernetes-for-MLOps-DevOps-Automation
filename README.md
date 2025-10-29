@@ -696,10 +696,12 @@ kubectl apply -f nginx-hpa.yaml
 
 ##### Whether you are deploying web backends, data pipelines, or AI models, Kubernetes ensures your workloads are automated, reliable, and production-ready.
 
+---
 
 
+📘 Purpose of this Repository: Educational guide for Kubernetes in Enterprise DevOps & MLOps environments
 
-📘 Purpose of the Repository: Educational guide for Kubernetes in Enterprise DevOps & MLOps environments
+---
 
 
 --
