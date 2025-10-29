@@ -337,6 +337,59 @@ spec:
 
 ---
 
+## 8b. Additional MLOps Example
+
+#### Create a file called ml-model-deployment.yaml:
+
+```python
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml-model-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ml-model
+  template:
+    metadata:
+      labels:
+        app: ml-model
+    spec:
+      containers:
+      - name: ml-model-container
+        image: yourdockerhubusername/ml-model:latest
+        ports:
+        - containerPort: 5000
+```
+
+### Then, expose it:
+
+```python
+apiVersion: v1
+kind: Service
+metadata:
+  name: ml-model-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: ml-model
+  ports:
+    - port: 80
+      targetPort: 5000
+```
+
+### This setup:
+
+- Runs 3 replicas of your trained ML model (using Flask or FastAPI).
+
+- Balances traffic across replicas.
+
+- Automatically restarts pods if one fails.
+
+- You can integrate this with Kubeflow, ZenML, or MLflow for full MLOps orchestration.
+
+
 ## 9. Hands-On Example — Deploy NGINX Locally
 
 #### Now let us walk through a complete example locally using Minikube.
