@@ -165,7 +165,7 @@ kubectl apply -f deployment.yaml
 
 ```
 
-##### Here is waht happens under teh hood
+##### Here is waht happens under the hood
 
 - The kubectl CLI talks to the Kubernetes API server (the control plane).
 
@@ -173,17 +173,17 @@ kubectl apply -f deployment.yaml
 
 **The controller manager notices**:
 
-“User wants 3 pods of nginx running.”
+- “User wants 3 pods of nginx running.”
 
-It compares that with the current state.
+- It compares that with the current state.
 
-If 0 pods exist, it creates 3.
+- If 0 pods exist, it creates 3.
 
-If 2 are running, it adds 1 more.
+- If 2 are running, it adds 1 more.
 
-The scheduler picks which node(s) to run those pods on.
+- The scheduler picks which node(s) to run those pods on.
 
-The kubelet (an agent running on each node) downloads the Docker image and starts the container.
+- The kubelet (an agent running on each node) downloads the Docker image and starts the container.
 
 ##### Kubernetes constantly ensures that the actual state matches the desired state you declared in your YAML.
 
