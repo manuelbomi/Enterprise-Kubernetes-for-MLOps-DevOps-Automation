@@ -126,7 +126,7 @@ Then Kubernetes:
 
 ##### You can write YAML files anytime (they’re just text), but to execute them, you need a running Kubernetes cluster.
 
-# Options for Clusters
+### Options for Clusters
 
 | Type        | Description |
 |-------------|-------------|
@@ -178,7 +178,7 @@ kubectl apply -f deployment.yaml
 
 ## 6. Key YAML Object Types You Will See
 
-# Kubernetes Objects
+### Kubernetes Objects
 
 | Object | Purpose |
 |--------|---------|
@@ -425,7 +425,7 @@ minikube stop
 kubectl autoscale deployment nginx-deployment --cpu-percent=70 --min=2 --max=5
 ```
 
-# Final Mental Model
+### Final Mental Model
 
 | Concept | Example |
 |---------|---------|
