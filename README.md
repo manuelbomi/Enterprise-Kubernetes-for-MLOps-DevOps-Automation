@@ -125,7 +125,11 @@ Then Kubernetes:
 
 ## 4. Do You Need to Install Kubernetes Before Writing YAML?
 
-##### You can write YAML files anytime (they’re just text), but to execute them, you need a running Kubernetes cluster.
+##### You can write YAMLs anytime, even without Kubernetes — they’re just text files.
+
+##### But to apply them and see them “come alive,” you need a Kubernetes cluster running somewhere.
+
+##### You have a few options for that:
 
 ### Options for Clusters
 
@@ -161,17 +165,25 @@ kubectl apply -f deployment.yaml
 
 ```
 
-##### Here’s the behind-the-scenes workflow:
+##### Here is waht happens under teh hood
 
-- kubectl talks to the API Server (control plane).
+- The kubectl CLI talks to the Kubernetes API server (the control plane).
 
-- The API server stores your configuration (desired state).
+- The API server reads your YAML and stores it as the desired state.
 
-- The Controller Manager compares desired vs. actual state.
+**The controller manager notices**:
 
-- If differences exist, the Scheduler assigns pods to nodes.
+“User wants 3 pods of nginx running.”
 
-- The Kubelet on each node pulls the image and starts the container.
+It compares that with the current state.
+
+If 0 pods exist, it creates 3.
+
+If 2 are running, it adds 1 more.
+
+The scheduler picks which node(s) to run those pods on.
+
+The kubelet (an agent running on each node) downloads the Docker image and starts the container.
 
 ##### Kubernetes constantly ensures that the actual state matches the desired state you declared in your YAML.
 
