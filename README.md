@@ -373,6 +373,20 @@ spec:
         - containerPort: 80
 ```
 
+### What This Does:
+
+- kind: Deployment — defines a managed set of pods.
+
+- replicas: 2 — runs two identical pods.
+
+- image: nginx — uses the official NGINX container.
+
+- port 80 — exposes port 80 inside the pod.
+
+
+
+
+
 ### Step 3: Create Service YAML
 
 ##### Create nginx-service.yaml:
@@ -392,6 +406,16 @@ spec:
       nodePort: 30001
 ```
 
+
+### What This Does:
+
+- kind: Service — exposes your pods.
+
+- type: NodePort — allows access via localhost.
+
+- nodePort: 30001 — makes it reachable on port 30001.
+
+
 ### Step 4: Deploy
 
 ```python
@@ -400,6 +424,13 @@ kubectl apply -f nginx-deployment.yaml
 
 kubectl apply -f nginx-service.yaml
 
+```
+
+#### Output:
+
+```python
+deployment.apps/nginx-deployment created
+service/nginx-service created
 ```
 
 ### Step 5: Verify
