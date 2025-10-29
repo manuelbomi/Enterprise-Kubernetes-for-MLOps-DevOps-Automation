@@ -66,7 +66,7 @@ Think of it as:
 
 Kubernetes uses **YAML files** as blueprints to describe what you want it to create or manage. YAML files essentially tells Kubernetes what you want it to do.
 
-These are **declarative** — meaning you describe the *desired state*, and Kubernetes figures out *how* to do or reach it.
+These are **declarative** — meaning you describe the *desired state*, and Kubernetes figures out *how* to do or reach that desired state.
 
 ---
 
