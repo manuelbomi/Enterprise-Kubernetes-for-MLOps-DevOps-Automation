@@ -101,3 +101,22 @@ Kubernetes ensures that 3 pods are running an NGINX container.
 
 If one fails, it spins up another automatically.
 
+
+## 4. Do You Need to Install Kubernetes Before Writing YAML?
+
+You can write YAML files anytime (they’re just text), but to execute them, you need a running Kubernetes cluster.
+
+# Options for Clusters
+
+| Type        | Description |
+|-------------|-------------|
+| **Local**   | Use Minikube or Kind for testing/development. |
+| **Cloud**   | Use Google GKE, AWS EKS, or Azure AKS for production. |
+| **Self-hosted** | Deploy and manage your own Kubernetes cluster on-premises or on cloud VMs. |
+
+### Example (Minikube)
+
+# Install Minikube
+brew install minikube kubectl   # macOS
+choco install minikube kubectl  # Windows
+
