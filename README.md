@@ -113,9 +113,12 @@ Then Kubernetes:
 - Restarts them if they crash.
 
 - Balances them across the cluster.
+- 
 
 > [!NOTE]
+> 
 > So in essence, it is the YAML file that defines what pods, services, and deployments should exist, <ins>but</ins> Kubernetes itself is the system that brings them to life.
+
 
 --- 
 
