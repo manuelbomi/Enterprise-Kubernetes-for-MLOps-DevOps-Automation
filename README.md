@@ -97,14 +97,14 @@ When you run:
 kubectl apply -f my-webapp.yaml
 ```
 
-Kubernetes ensures that 3 pods are running an NGINX container.
+##### Kubernetes ensures that 3 pods are running an NGINX container.
 
-If one fails, it spins up another automatically.
+##### If one fails, it spins up another automatically.
 
 
 ## 4. Do You Need to Install Kubernetes Before Writing YAML?
 
-You can write YAML files anytime (they’re just text), but to execute them, you need a running Kubernetes cluster.
+##### You can write YAML files anytime (they’re just text), but to execute them, you need a running Kubernetes cluster.
 
 # Options for Clusters
 
@@ -122,7 +122,33 @@ You can write YAML files anytime (they’re just text), but to execute them, you
 brew install minikube kubectl   # macOS
 
 
-
 choco install minikube kubectl  # Windows
+
+# Start a cluster
+minikube start
+
 ```
+
+## 5. What Happens When You Deploy YAML
+
+##### When you apply a YAML file with:
+
+```python
+kubectl apply -f deployment.yaml
+
+```
+
+##### Here’s the behind-the-scenes workflow:
+
+- kubectl talks to the API Server (control plane).
+
+- The API server stores your configuration (desired state).
+
+- The Controller Manager compares desired vs. actual state.
+
+- If differences exist, the Scheduler assigns pods to nodes.
+
+- The Kubelet on each node pulls the image and starts the container.
+
+##### Kubernetes constantly ensures that the actual state matches the desired state you declared in your YAML.
 
